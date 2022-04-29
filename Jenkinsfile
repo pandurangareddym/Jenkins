@@ -1,10 +1,9 @@
 pipeline {
-    agent { dockerfile true }
+    agent { docker { image 'ruby:3.0.3-alpine' } }
     stages {
-        stage('Test') {
+        stage('build') {
             steps {
-                sh 'node --version'
-                sh 'svn --version'
+                sh 'ruby --version'
             }
         }
     }
